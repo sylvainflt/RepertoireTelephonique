@@ -57,6 +57,7 @@ public class Telephone extends JDialog implements ActionListener{
            	    		saisiTel.getText()
            	     }
           	);
+        	dispose();
         } 
 	}
 	

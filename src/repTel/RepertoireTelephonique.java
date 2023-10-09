@@ -26,14 +26,6 @@ public class RepertoireTelephonique extends JFrame implements ActionListener{
 	
 	private DefaultTableModel model;
 	
-	public DefaultTableModel getModel() {
-		return model;
-	}
-
-	public void setModel(DefaultTableModel model) {
-		this.model = model;
-	}
-
 	public RepertoireTelephonique(String name) {
 		super(name);
 	}
@@ -44,6 +36,14 @@ public class RepertoireTelephonique extends JFrame implements ActionListener{
 
 	public void setContactTable(JTable contactTable) {
 		this.contactTable = contactTable;
+	}
+
+	public DefaultTableModel getModel() {
+		return model;
+	}
+
+	public void setModel(DefaultTableModel model) {
+		this.model = model;
 	}
 
 	public void setUpWindow() {
@@ -95,7 +95,9 @@ public class RepertoireTelephonique extends JFrame implements ActionListener{
 		if ("ajouter".equals(e.getActionCommand())) {
         	modal = new Telephone(this);
         } else if("supprimer".equals(e.getActionCommand())) {
-        	model.removeRow(contactTable.getSelectedRow());
+        	if(contactTable.getSelectedRow() != -1) {
+        		model.removeRow(contactTable.getSelectedRow());
+        	}        	
         }
 	}
 	
